@@ -28,7 +28,12 @@ public class Mypage extends AppCompatActivity {
     ImageButton button_mypage_quest_v;
     ImageButton button_mypage_block_v;
     ImageButton button_mypage_n_v;
+
+    ImageButton button_mypage_orderinfo;
+    ImageButton button_mypage_product;
+
     ImageButton button_mypage_companyadd;
+    ImageButton button_mypage_add2;
 
 
     TextView text_mypage_store;
@@ -39,6 +44,9 @@ public class Mypage extends AppCompatActivity {
     Button.OnClickListener clickListener;
     View layer_login;
     View layout_mypage_order;
+    View layout_mypage_signupcompany;
+    View layout_mypage_company;
+    View layout_mypage_production;
 
 
     String id_log = "Hello";
@@ -70,21 +78,29 @@ public class Mypage extends AppCompatActivity {
         button_company = findViewById(R.id.button_company);
         button_back = findViewById(R.id.button_back);
         button_order = findViewById(R.id.button_order);
+
+        button_mypage_orderinfo = findViewById(R.id.button_mypage_orderinfo);
+        button_mypage_product = findViewById(R.id.button_mypage_product);
+
         button_mypage_example = findViewById(R.id.button_mypage_example);
         button_mypage_order_v = findViewById(R.id.button_mypage_order_v);
         button_mypage_quest_v = findViewById(R.id.button_mypage_quest_v);
         button_mypage_n_v = findViewById(R.id.button_mypage_n_v);
         button_mypage_block_v = findViewById(R.id.button_mypage_block_v);
         button_mypage_companyadd = findViewById(R.id.button_mypage_companyadd);
+        button_mypage_add2 = findViewById(R.id.button_mypage_add2);
 
 
         layout_mypage_order = findViewById(R.id.layout_mypage_order);
+        layout_mypage_company = findViewById(R.id.layout_mypage_company);
         text_mypage_store = findViewById(R.id.text_mypage_store);
         text_mypage_ingre = findViewById(R.id.text_mypage_ingre);
         text_mypage_menu = findViewById(R.id.text_mypage_menu);
         text_mypage_num = findViewById(R.id.text_mypage_num);
 
         layer_login = findViewById(R.id.layout_mypage_login);
+        layout_mypage_production = findViewById(R.id.layout_mypage_production);
+        layout_mypage_signupcompany = findViewById(R.id.layout_mypage_signupcompany);
 
 
         clickListener = new Button.OnClickListener() {
@@ -93,15 +109,16 @@ public class Mypage extends AppCompatActivity {
             public void onClick(View view) {
                 switch (view.getId()){
                     case R.id.button_login:
-                        if(id_log.equals(input_id.getText().toString())){
+                        //if(id_log.equals(input_id.getText().toString())){
                             layer_login.setVisibility(View.GONE);
-                        }
-                        else{
-                            Toast.makeText(getApplicationContext(), "나가주세요", Toast.LENGTH_SHORT).show();
-                        }
+                       // }
+                       // else{
+                       //     Toast.makeText(getApplicationContext(), "나가주세요", Toast.LENGTH_SHORT).show();
+                       // }
                         break;
                     case R.id.button_company:
                         if(layer_login.getVisibility()==View.GONE){
+                            layout_mypage_company.setVisibility(View.VISIBLE);
                         }
                         break;
                     case R.id.button_back:
@@ -164,8 +181,17 @@ public class Mypage extends AppCompatActivity {
                             button_mypage_block_v.setImageResource(R.drawable.mypage_block0);
                         }
                         break;
-                    case R.id.button_mypage_companyadd:
 
+
+                    case R.id.button_mypage_companyadd:
+                        layout_mypage_signupcompany.setVisibility(View.GONE);
+                        break;
+                    case R.id.button_mypage_add2:
+                        layout_mypage_signupcompany.setVisibility(View.VISIBLE);
+                        break;
+
+                    case R.id.button_mypage_product:
+                        layout_mypage_production.setVisibility(View.VISIBLE);
                         break;
                 }
 
@@ -178,11 +204,17 @@ public class Mypage extends AppCompatActivity {
         button_login.setOnClickListener(clickListener);
         button_add.setOnClickListener(clickListener);
         button_company.setOnClickListener(clickListener);
+
+        button_mypage_product.setOnClickListener(clickListener);
+        button_mypage_orderinfo.setOnClickListener(clickListener);
+
         button_mypage_order_v.setOnClickListener(clickListener);
         button_mypage_quest_v.setOnClickListener(clickListener);
         button_mypage_n_v.setOnClickListener(clickListener);
         button_mypage_block_v.setOnClickListener(clickListener);
+
         button_mypage_companyadd.setOnClickListener(clickListener);
+        button_mypage_add2.setOnClickListener(clickListener);
 
 
 
